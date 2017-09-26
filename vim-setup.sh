@@ -106,6 +106,12 @@ if [[ $1 == "init" ]]; then
   else
     sudo apt-get install vim-pathogen
   fi
+  # create .vim directory
+  if [ ! -d "${HOME}/.vim" ]; then
+    mkdir ${HOME}/.vim
+  else
+    echo "${HOME}/.vim directory already exists"
+  fi
   # create bundle directory
   if [ ! -d "${HOME}/.vim/bundle" ]; then
     mkdir ${HOME}/.vim/bundle

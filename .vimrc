@@ -15,3 +15,4 @@ set expandtab " replace tabs with spaces
 set number " show absolute line numbers
 set relativenumber " show relative line numbers (combined with absolute gives hybrid)
 set showmatch " highlight matching braces
+set so=999 " keep cursor centered by setting a large scroll offset

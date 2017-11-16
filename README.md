@@ -4,6 +4,7 @@ Simple vim environment setup and plugin management
 # Getting Started
 Do the following:
 ```
+  cd ~
   git clone https://github.com/rynobey/vim-setup.git
   cd vim-setup
   chmod +x vim-setup.sh

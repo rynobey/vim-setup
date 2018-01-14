@@ -9,9 +9,11 @@ Do the following:
   cd vim-setup
   chmod +x vim-setup.sh
 ```
+Followed by
 ```
   ./vim-setup.sh init
 ```
+and
 ```
   ./vim-setup.sh install
 ```

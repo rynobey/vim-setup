@@ -8,7 +8,11 @@ Do the following:
   git clone https://github.com/rynobey/vim-setup.git
   cd vim-setup
   chmod +x vim-setup.sh
+```
+```
   ./vim-setup.sh init
+```
+```
   ./vim-setup.sh install
 ```
 # Instructions

@@ -16,3 +16,14 @@ set number " show absolute line numbers
 set relativenumber " show relative line numbers (combined with absolute gives hybrid)
 set showmatch " highlight matching braces
 set so=999 " keep cursor centered by setting a large scroll offset
+
+" File explorer
+autocmd VimEnter * NERDTree
+
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+let g:NERDTreeWinSize=60

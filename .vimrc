@@ -1,5 +1,17 @@
-" Pathogen
-execute pathogen#infect()
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/bundle')
+
+" List your plugins here
+Plug 'preservim/nerdtree'
+Plug 'tomlion/vim-solidity'
+Plug 'https://github.com/ervandew/supertab.git'
+
+call plug#end()
 
 " Colors
 syntax enable " enable syntax highlighting
@@ -15,7 +27,8 @@ set expandtab " replace tabs with spaces
 set number " show absolute line numbers
 set relativenumber " show relative line numbers (combined with absolute gives hybrid)
 set showmatch " highlight matching braces
-set so=999 " keep cursor centered by setting a large scroll offset
+set so=15 " keep cursor centered by setting a large scroll offset
+set ruler
 
 " File explorer
 autocmd VimEnter * NERDTree
@@ -26,4 +39,16 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
-let g:NERDTreeWinSize=60
+let g:NERDTreeWinSize=50
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
+map <C-W>f :NERDTreeToggle<CR>
+
+set foldmethod=marker foldmarker={,}
+set foldlevel=99
+
+colorscheme evening
+hi NonText ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
+
+set splitright
